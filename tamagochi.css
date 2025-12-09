@@ -1,8 +1,15 @@
+/* --- ESTRUCTURA PRINCIPAL (Tu código original) --- */
 body {
     font-family: 'Courier New', Courier, monospace;
     background-color: #222;
     color: white;
     text-align: center;
+    /* Centrado vertical para que quede bonito */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 }
 
 .pet-screen {
@@ -12,6 +19,7 @@ body {
     padding: 20px;
     border-radius: 10px;
     background-color: #444;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5); /* Le añadí una sombra suave */
 }
 
 .pet-face {
@@ -24,17 +32,82 @@ body {
     justify-content: space-around;
     font-size: 18px;
     margin-bottom: 20px;
+    background-color: #333; /* Un fondo suave para los textos */
+    padding: 10px;
+    border-radius: 8px;
 }
 
+/* --- BOTONES GAMER 3D (Fase 6) --- */
+/* Sustituye a tu antiguo .boton */
 .boton {
-    background-color: #f5c103;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
+    box-shadow: 0px 4px 0px #c7861b; /* Sombra sólida (Efecto 3D) */
+    background: linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+    background-color: #ffec64;
+    border-radius: 6px;
+    border: 1px solid #ffaa22;
+    display: inline-block;
     cursor: pointer;
+    color: #333;
+    font-family: Arial, sans-serif; /* Fuente más legible para botones */
+    font-size: 15px;
     font-weight: bold;
+    padding: 10px 24px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #ffee66;
     margin: 5px;
+    transition: all 0.1s; /* Animación rápida */
 }
 
-.boton:hover { background-color: #fff; }
-.game-over { color: red; font-size: 30px; font-weight: bold; }
+/* Efecto al pulsar (Click) */
+.boton:active {
+    position: relative;
+    top: 4px; /* El botón baja */
+    box-shadow: 0px 0px 0px #c7861b; /* La sombra desaparece */
+}
+
+/* Botón Desactivado (Opcional, por si usaras disabled) */
+.boton:disabled {
+    background: #cccccc;
+    box-shadow: none;
+    cursor: not-allowed;
+    color: #666;
+    border: 1px solid #999;
+}
+
+/* --- BOTÓN DE RESET (Versión Roja 3D) --- */
+/* Usa la misma lógica 3D pero en rojo */
+.boton-reset {
+    box-shadow: 0px 4px 0px #8b0000;
+    background: linear-gradient(to bottom, #ff5e57 5%, #ff3333 100%);
+    background-color: #ff5e57;
+    border: 1px solid #cc0000;
+    color: white;
+    text-shadow: 0px 1px 0px #8b0000;
+    
+    /* Para que se distinga bien abajo */
+    display: block; 
+    width: 80%;
+    margin: 20px auto 0 auto; 
+}
+
+.boton-reset:active {
+    position: relative;
+    top: 4px;
+    box-shadow: 0px 0px 0px #8b0000;
+}
+
+/* --- GAME OVER --- */
+.game-over {
+    color: #ff4444;
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    animation: parpadeo 1s infinite;
+    margin: 10px 0;
+}
+
+@keyframes parpadeo {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
